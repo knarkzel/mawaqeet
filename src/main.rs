@@ -14,7 +14,7 @@ fn float_to_time(input: f64) -> String {
     let minutes = (input * 24.0 * 60.0) as usize;
     let hour = minutes / 60;
     let minute = minutes % 60;
-    format!("{hour}:{minute}")
+    format!("{hour}:{minute:02}")
 }
 
 fn app(cx: Scope) -> Element {
