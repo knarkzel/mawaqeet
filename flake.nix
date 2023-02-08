@@ -31,7 +31,7 @@
       devShell = pkgs.mkShell {
         buildInputs = [
           rust
-          trunk
+          pkgs.trunk
         ];
       };
     });
