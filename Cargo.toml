@@ -5,7 +5,7 @@ edition = "2021"
 
 [profile.release]
 lto = true
-opt-level = 's'
+opt-level = "z"
 
 [dependencies]
 dioxus = "0.3.1"
