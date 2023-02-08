@@ -849,8 +849,8 @@ imports.wbg.__wbindgen_closure_wrapper956 = function(arg0, arg1, arg2) {
     const ret = makeMutClosure(arg0, arg1, 73, __wbg_adapter_18);
     return addHeapObject(ret);
 };
-imports.wbg.__wbindgen_closure_wrapper1884 = function(arg0, arg1, arg2) {
-    const ret = makeMutClosure(arg0, arg1, 104, __wbg_adapter_21);
+imports.wbg.__wbindgen_closure_wrapper1885 = function(arg0, arg1, arg2) {
+    const ret = makeMutClosure(arg0, arg1, 103, __wbg_adapter_21);
     return addHeapObject(ret);
 };
 imports['./snippets/dioxus-interpreter-js-dab579f08da5298b/inline0.js'] = __wbg_star0;
@@ -889,7 +889,7 @@ function initSync(module) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('mawaqeet-3733d72660ae3eff_bg.wasm', import.meta.url);
+        input = new URL('mawaqeet-56f3148d42c8bfc4_bg.wasm', import.meta.url);
     }
     const imports = getImports();
 
