@@ -3,6 +3,10 @@ name = "mawaqeet"
 version = "0.1.0"
 edition = "2021"
 
+[profile.release]
+lto = true
+opt-level = 's'
+
 [dependencies]
 dioxus = "0.3.1"
 dioxus-web = "0.3.0"
