@@ -11,32 +11,21 @@ fn main() {
 }
 
 fn app(cx: Scope) -> Element {
+    // Get spreadsheet entries
     let bytes = include_bytes!("arendal.xlsx");
     let spreadsheet = spreadsheet::parse(bytes);
-    
-    // let future = use_future(cx, (), |_| async move {
-    //     reqwest::Client::new()
-    //         .get("https://www.mawaqeet.no/download/arendal/?wpdmdl=931")
-    //         .fetch_mode_no_cors()
-    //         .send()
-    //         .await
-    //         .unwrap()
-    //         .bytes()
-    //         .await
-    // });
 
-    // let spreadsheet = future.value().map(|xlsx| match xlsx {
-    //     Ok(xlsx) => Ok(spreadsheet::parse(xlsx)),
-    //     Err(e) => Err(e),
-    // });
+    // Get current day in year
+    let now = js_sys::Date::new_0();
+    let start = js_sys::Date::new_with_year_month_day(now.get_full_year(), 0, 0);
+    let day = ((now.value_of() - start.value_of()) / 1000.0 / 60.0 / 60.0 / 24.0).floor() as usize - 1;
     
     cx.render(match spreadsheet {
         Ok(entries) => {
             rsx! {
                 h1 { "Mawaqeet" }
-                p { format!("{}", entries.len()) }
                 pre {
-                    format!("{entries:#?}")
+                    format!("{:#?}", entries[day])
                 }
             }
         }

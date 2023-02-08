@@ -661,6 +661,7 @@ dependencies = [
  "calamine",
  "dioxus",
  "dioxus-web",
+ "js-sys",
  "reqwest",
 ]
 
