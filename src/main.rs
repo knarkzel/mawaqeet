@@ -25,9 +25,8 @@ fn app(cx: Scope) -> Element {
     // Get current day in year and entry
     let now = js_sys::Date::new_0();
     let start = js_sys::Date::new_with_year_month_day(now.get_full_year(), 0, 0);
-    let day =
-        ((now.value_of() - start.value_of()) / 1000.0 / 60.0 / 60.0 / 24.0).floor() as usize - 1;
-    let current_time = now.to_locale_time_string("no");
+    let delta = now.value_of() - start.value_of();
+    let day = (delta / 1000.0 / 60.0 / 60.0 / 24.0).floor() as usize - 1;
 
     cx.render(match spreadsheet {
         Ok(entries) => {
@@ -46,7 +45,6 @@ fn app(cx: Scope) -> Element {
 
             rsx! {
                 h1 { "Mawaqeet" }
-                p { format!("Klokka er {current_time}") }
                 table {
                     thead {
                         tr {
