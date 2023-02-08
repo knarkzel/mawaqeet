@@ -13,7 +13,7 @@ jobs:
       - uses: cachix/install-nix-action@v18
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
-      - run: nix develop --command trunk build --release
+      - run: nix develop --command trunk build --release --public-url mawaqeet
       - uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages
