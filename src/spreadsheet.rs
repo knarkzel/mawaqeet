@@ -16,14 +16,14 @@ type Row = (
 
 #[derive(Debug)]
 pub struct Entry {
-    day: usize,
-    fajr: f64,
-    shurooq: f64,
-    dhuhr: f64,
-    asr_shafi: f64,
-    asr_hanafi: f64,
-    maghrib: f64,
-    isha: Option<f64>,
+    pub day: usize,
+    pub fajr: f64,
+    pub shuroq: f64,
+    pub dhuhr: f64,
+    pub asr_shafi: f64,
+    pub asr_hanafi: f64,
+    pub maghrib: f64,
+    pub isha: Option<f64>,
 }
 
 pub fn parse(spreadsheet: &[u8]) -> Result<Vec<Entry>> {
@@ -62,7 +62,7 @@ pub fn parse(spreadsheet: &[u8]) -> Result<Vec<Entry>> {
             let entry = Entry {
                 day: row.0.parse()?,
                 fajr: row.2.parse()?,
-                shurooq: row.3.parse()?,
+                shuroq: row.3.parse()?,
                 dhuhr: row.4.parse()?,
                 asr_shafi: row.5.parse()?,
                 asr_hanafi: row.6.parse()?,
