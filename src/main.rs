@@ -42,7 +42,7 @@ fn app(cx: Scope) -> Element {
             let isha = entry
                 .isha
                 .map(|it| float_to_time(it))
-                .unwrap_or(String::from("--::--"));
+                .unwrap_or(String::from("-:-"));
 
             rsx! {
                 h1 { "Mawaqeet" }
