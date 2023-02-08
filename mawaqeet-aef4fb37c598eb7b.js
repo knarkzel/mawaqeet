@@ -873,7 +873,7 @@ function initSync(module) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('mawaqeet-ba0b910b91a27456_bg.wasm', import.meta.url);
+        input = new URL('mawaqeet-aef4fb37c598eb7b_bg.wasm', import.meta.url);
     }
     const imports = getImports();
 
