@@ -11,31 +11,35 @@ fn main() {
 }
 
 fn app(cx: Scope) -> Element {
-    let future = use_future(cx, (), |_| async move {
-        reqwest::Client::new()
-            .get("https://www.mawaqeet.no/download/arendal/?wpdmdl=931")
-            .fetch_mode_no_cors()
-            .send()
-            .await
-            .unwrap()
-            .bytes()
-            .await
-    });
+    let bytes = include_bytes!("arendal.xlsx");
+    let spreadsheet = spreadsheet::parse(bytes);
+    
+    // let future = use_future(cx, (), |_| async move {
+    //     reqwest::Client::new()
+    //         .get("https://www.mawaqeet.no/download/arendal/?wpdmdl=931")
+    //         .fetch_mode_no_cors()
+    //         .send()
+    //         .await
+    //         .unwrap()
+    //         .bytes()
+    //         .await
+    // });
 
-    let spreadsheet = future.value().map(|xlsx| match xlsx {
-        Ok(xlsx) => Ok(spreadsheet::parse(xlsx)),
-        Err(e) => Err(e),
-    });
+    // let spreadsheet = future.value().map(|xlsx| match xlsx {
+    //     Ok(xlsx) => Ok(spreadsheet::parse(xlsx)),
+    //     Err(e) => Err(e),
+    // });
     
     cx.render(match spreadsheet {
-        Some(Ok(entries)) => {
+        Ok(entries) => {
             rsx! {
+                h1 { "Mawaqeet" }
+                p { format!("{}", entries.len()) }
                 pre {
                     format!("{entries:#?}")
                 }
             }
         }
-        Some(Err(_)) => rsx! { div { "Error loading prayer times" } },
-        None => rsx! { div { "Loading prayer times..." } },
+        Err(e) => rsx! { div { "Error while parsing spreadsheet: {e:?}" } },
     })
 }

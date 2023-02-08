@@ -29,8 +29,6 @@ pub fn parse(spreadsheet: &[u8]) -> Result<Vec<Entry>> {
     // Get spreadsheet
     let reader = Cursor::new(spreadsheet);
     let mut workbook = Xlsx::new(reader)?;
-    
-    let mut workbook: Xlsx<_> = open_workbook("arendal.xlsx")?;
     let range = workbook
         .worksheet_range("Salah tabell")
         .ok_or_else(|| Error::Msg("Cannot find 'Sheet1'"))??;

@@ -659,7 +659,6 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "calamine",
- "console_error_panic_hook",
  "dioxus",
  "dioxus-web",
  "reqwest",
