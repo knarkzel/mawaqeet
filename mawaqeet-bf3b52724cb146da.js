@@ -829,12 +829,12 @@ imports.wbg.__wbg_metaKey_934772989e28020c = function(arg0) {
     const ret = getObject(arg0).metaKey;
     return ret;
 };
-imports.wbg.__wbindgen_closure_wrapper922 = function(arg0, arg1, arg2) {
-    const ret = makeMutClosure(arg0, arg1, 76, __wbg_adapter_18);
+imports.wbg.__wbindgen_closure_wrapper952 = function(arg0, arg1, arg2) {
+    const ret = makeMutClosure(arg0, arg1, 73, __wbg_adapter_18);
     return addHeapObject(ret);
 };
-imports.wbg.__wbindgen_closure_wrapper1876 = function(arg0, arg1, arg2) {
-    const ret = makeMutClosure(arg0, arg1, 106, __wbg_adapter_21);
+imports.wbg.__wbindgen_closure_wrapper1883 = function(arg0, arg1, arg2) {
+    const ret = makeMutClosure(arg0, arg1, 107, __wbg_adapter_21);
     return addHeapObject(ret);
 };
 imports['./snippets/dioxus-interpreter-js-dab579f08da5298b/inline0.js'] = __wbg_star0;
@@ -873,7 +873,7 @@ function initSync(module) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('mawaqeet-cf13a9b91c2403f1_bg.wasm', import.meta.url);
+        input = new URL('mawaqeet-bf3b52724cb146da_bg.wasm', import.meta.url);
     }
     const imports = getImports();
 
